@@ -1,0 +1,223 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <style>
+body{
+  font:40px; playball; cursive;
+  font-family: 'Hind', sans-serif;
+  font-style: oblique;
+  background: url(http://127.0.0.1:8000/static/media/pics/img_5.png)no-repeat center;
+  background-size:1350px 1540px;
+}
+.my_header{
+padding:20px; 0px; opx;
+}
+label{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  margin-right:120px;
+  margin-left:350px;
+}
+input{
+margin-right:120px;
+margin-left:480px;
+width: 40%;
+padding: 6px 25px;
+display: inline-block;
+border: 1px solid #000000;
+border-radius: 6px;
+box-sizing: border-box;
+}
+.dropdown_content{
+margin-right:120px;
+margin-left:500px;
+
+}
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px 15px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-left:480px;
+}
+.my_text{
+font-size: 20px;
+}
+.my_opt{
+    position: relative;
+    display: inline-block;
+    font-size:18px;
+    margin-left:-150px;
+
+}
+.my_choice{
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 18px;
+    background: transparent;
+    padding: 0.3em 9.4em;
+    border: 1px solid #000000;
+    color: #00000!important;
+    -webkit-appearance: none;
+    margin-left:-60px;
+}
+.my_choice_a{
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 18px;
+    background: transparent;
+    padding: 0.3em 11.4em;
+    border: 1px solid #000000;
+    color: #00000!important;
+    -webkit-appearance: none;
+    margin-left:-50px;
+}
+.my_choice_b{
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 18px;
+    background: transparent;
+    padding: 0.3em 10em;
+    border: 1px solid #000000;
+    color: #00000!important;
+    -webkit-appearance: none;
+    margin-left:-40px;
+}
+.my_choice_c{
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    font-size: 18px;
+    background: transparent;
+    padding: 0.3em 9.2em;
+    border: 1px solid #000000;
+    color: #00000!important;
+    -webkit-appearance: none;
+    margin-left:-65px;
+}
+.container{
+padding:40px;
+}
+.my_input{
+background: transparent;
+border: 1px solid #000000;
+}
+.my_label{
+  display: inline-block;
+}
+    </style>
+
+<div class="order-log" >
+    <div class="my_header" style="font-size:80px; text-align:center;">
+        <h1 style="color:#009933;"> Cake Booking </h1>
+    </div>
+    <div class="container shadow">
+        <div class="login">
+        <form id="order_form" action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+            <div class="my_opt">
+                <label>Shape</label>
+                <select class="my_choice" name="Shape">
+                    <option value="1">Round</option>
+                    <option value="2">Rectangle</option>
+                    <option value="3">Square</option>
+                    <option value="4">custom</option>
+                </select>
+            </div>
+            <div class="my_opt">
+                <label>Level</label>
+                <select class="my_choice_a" name="Level">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="my_opt">
+            <label>Size</label>
+                <select class="my_choice_b" name="Level">
+                    <option value="1">4 inch</option>
+                    <option value="2">6 inch</option>
+                    <option value="3">8 inch</option>
+                    <option value="4">10 inch</option>
+                </select>
+            </div>
+            <div class="my_opt">
+            <label>Flavour</label>
+                <select class="my_choice_c" name="Flavour">
+                    <option value="1">Strawberry</option>
+                    <option value="2">Vanila</option>
+                    <option value="3">Chocolate</option>
+                    <option value="4">Red velvet</option>
+                </select>
+            </div>
+            <div class="login_1">
+                <div class="address" style="font-size:18px; margin-left:-150px; margin-right:80px;">
+                    <label>Name</label>
+                        <input class="my_input" type="text" id="name" name="Name" placeholder="Name">
+
+                    <label>Email</label>
+                        <input class="my_input" type="email" id="email" name="Email" placeholder="Email">
+                    <label>PhoneNo</label>
+                        <input class="my_input" type="tel" id="phone" name="Phone No" placeholder="Phone No">
+                    <label>Address</label>
+                        <input class="my_input" type="text" name="Street Address" placeholder="Street Address"><br><br>
+                        <input class="my_input" type="text" name="streetAddress line2" placeholder="street Address line 2"><br><br>
+                        <input class="my_input" type="text" name="City" placeholder="City"><br><br>
+                        <select class="my_choice" name="State" style="margin-left:480px;">
+                            <option value="1">Kerala</option>
+                            <option value="2">Tamilnadu</option>
+                            <option value="2">karnataka</option>
+                        </select>
+                    <div class="my_opt1">
+                        <label>Delivery Date </label>
+                            <input class="my_input" type="date" id="del_date" name="Delivery Date" placeholder="Delivery Date">
+                    </div><br>
+                    <button  onclick="my_function();" type="submit" value="Order">Order</button>
+                    <script>
+                        //function my_function(name){
+                        //    alert('{{name}} Cake reach after 2 or 3 Days')
+                        //}
+                        function my_function(){
+                            var name = $('#name').val();
+                            var email = $('#email').val();
+                            var phone = $('#phone').val();
+                            var del_date = $('#del_date').val();
+                            var flag = true
+                            if(name == ""){
+                                flag = false
+                            }else if( email == ""){
+                                flag = false
+                            }else if(phone == ""){
+                                flag = false
+                            }else{
+                                flag = true
+                            }
+
+                            if(flag == true){
+                                   console.log("zero",flag)
+                                  alert('Your Cake reach after 2 or 3 Days')
+                            }else{
+                                    console.log("non-zero",flag)
+                                    console.log(name)
+                                    console.log(email)
+                                    console.log(phone)
+                                    console.log(del_date)
+                                   alert(' Name, email, phone number and Delivery dates are required..')
+                            }
+                            }
+
+                    </script>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

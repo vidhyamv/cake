@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+body{
+  background-image: url(img_3.png);
+  font-size: 14px;
+  line-height: 1.75;
+  visibility: visible;
+  font-family: "Open Sans", sans-serif;
+  color: #666666;
+  position: relative;
+
+}
+.login-reg{
+padding-top: 50px;
+padding-left: 50px;
+font-size: 25px;
+}
+
+input{
+  width: 20%;
+  padding: 10px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 18px;
+   margin-bottom: 20px;
+}
+button{
+    background-color:#0A6E2B;
+    color:white;
+    padding: 10px 10px 10px 10px;
+    text-align:center;
+    display:inline-block;
+    font-size: 25px;
+}
+ </style>
+<div class="main-wrapper mt-5">
+    <h1 style="text-align:center; font-family:Snell Roundhand, cursive;font-style: italic;color:#009933; "><b>Christmas Cakes</b></h1>
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="col-md-8">
+            <div class="row shadow p-4">
+                <div class="col-md-6 d-flex align-items-center justify-content-center  ">
+                    <div class="login-reg">
+                        <div class="content mb-4">
+                            <h1>Login</h1>
+                        </div>
+
+                        <form action="{% url 'login' %}" method="post">
+                        {% for message in messages %}
+                            <div class="alert alert-success">
+                                <a class="close" href="#" data-dismiss="alert"></a>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        {% csrf_token %}
+                                <input type="text" class="form-control" name="Username" placeholder="Username">
+                                <input type="password"  class="form-control "name="Password" placeholder="Password">
+                                <button type="submit" class="btn btn-primary col-md-12">Login</button><br>
+                                <small class="text-muted" style="font-size: 16px;">New User ? <a href="{% url 'register' %}">Register Now</a></small>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center  col-md-6">
+                    <img class="my_img" src="{% static 'media/pics/img_4.png' %}" alt="hii" width="300px" height="300px">
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>
+{% endblock%}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="my_prod_row_class">
+<!--<div class="container">-->
+    <div class="row d-flex justify-content-center">
+        {% for i in cake %}
+<!--            <div class="col-md-4">-->
+<!--                <div>-->
+<!--                    <img src="{{i.img.url}}" alt="{{i.name}}" width="400px;" height="400px;">-->
+<!--                </div>-->
+<!--                 <div>-->
+<!--                    <h1 class="my_prod_title"> <b>{{i.name}} </b></h1>-->
+<!--                    <p> $ {{i.prize}} </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        <div class="col-md-4">-->
+            <div class="card m-3 " style="width: 18rem;">
+              <img class="card-img-top" src="{{i.img.url}}" style="height:200px;" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p> ${{i.prize | get_digit:"0" }}</p>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+<!--</div>-->
+</div>
+<!--</div>-->
+{% endblock %}
