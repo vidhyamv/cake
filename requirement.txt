@@ -1,0 +1,11 @@
+asgiref==3.4.1
+click==8.0.3
+colorama==0.4.4
+Django==4.0.1
+freeze-requirements==0.5.3
+mysqlclient==2.1.0
+Pillow==9.0.0
+sh==1.14.2
+six==1.16.0
+sqlparse==0.4.2
+tzdata==2021.5
